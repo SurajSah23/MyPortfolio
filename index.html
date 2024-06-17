@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
+  <script src="js/index.js" defer></script>
+  <title>Portfolio</title>
+  <style>
+    /* General styles */
+    body {
+      background-color: #1e1e1e;
+      font-family: 'Montserrat', sans-serif; 
+      margin: 0;
+      padding: 0;
+      color: #fff; 
+      line-height: 1.6;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      background-color: #2c3e50; 
+      color: #fff; 
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .menu-items {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .menu-items li {
+      margin-left: 20px;
+    }
+
+    .menu-items li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .menu-items li a:hover {
+      color: #3498db; 
+    }
+
+    /* Content section styles */
+    .section {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    .active {
+      display: block;
+    }
+
+    .content h2 {
+      font-size: 3rem;
+      color: #3498db; 
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      color: #ccc; 
+      line-height: 1.8;
+    }
+
+    /* Hero section styles */
+    #hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://camo.githubusercontent.com/d264b96ca0dc1c33aacd470e9300703c9c4de1b1115ae52884844fecf4b2450b/68747470733a2f2f6d656469612e6973746f636b70686f746f2e636f6d2f69642f313335363336343238372f70686f746f2f636c6f73652d75702d666f6375732d6f6e2d706572736f6e732d68616e64732d747970696e672d6f6e2d7468652d6465736b746f702d636f6d70757465722d6261636b6c69742d6b6579626f6172642d73637265656e732d73686f772e6a70673f733d3631327836313226773d30266b3d323026633d696a6a712d444c4e784961507547764958386b3036495a784d416a4770794a65626f61565f62794358396b3d') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    #hero h1 {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    #hero p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    #hero button {
+      background-color: #3498db; 
+      color: #fff;
+      padding: 18px 36px;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    #hero button:hover {
+      background-color: #2980b9; 
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #2c3e50; 
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .menu-items {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu-items li {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+
+      .navbar {
+        padding: 10px;
+      }
+
+      #hero {
+        height: auto;
+        padding: 120px 20px;
+      }
+
+      #hero h1 {
+        font-size: 4rem;
+      }
+
+      .content h2 {
+        font-size: 2.5rem;
+      }
+
+      .content p {
+        font-size: 1.1rem;
+      }
+
+      #hero button {
+        padding: 14px 28px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body id="page">
+  <header>
+    <nav class="navbar">
+      <div class="logo"><i class="bi bi-code-slash"></i> Portfolio</div>
+      <ul class="menu-items">
+        <li><a href="#hero" onclick="showSection('hero')">Home</a></li>
+        <li><a href="#AboutUs" onclick="showSection('AboutUs')">About</a></li>
+        <li><a href="#resume" onclick="showSection('resume')">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section id="hero" class="section active">
+    <div class="text">
+      <h1>Welcome to My Portfolio</h1>
+      <p>As a coder, my biggest strengths are adaptability and persistence. I thrive on tackling new challenges and stay determined until I achieve my goals.</p>
+      <button onclick="showEntirePage()">Get Started</button>
+    </div>
+  </section>
+  
+  <section id="AboutUs" class="section">
+    <div class="content">
+      <h2>About Me</h2>
+      <p>As a coder, my biggest strengths are being able to roll with the punches and never giving up. In this constantly changing tech world, those qualities have been key to my success. Adaptability is huge in coding because new languages, frameworks, and ways of doing things are always popping up. I actually get excited about tackling the unknown and turning it into something I can master.</p>
+      <p>Whenever I come across a new technology or a really tough problem, my first move is to do a deep dive and learn as much as I can about it. I'll read all the documentation, watch tutorials, hit up online communities – whatever it takes to get a solid understanding. Having an open, flexible mindset allows me to quickly switch gears from one tool or approach to another, picking up new skills on the fly and using them to solve real-world challenges.</p>
+      <p>But adaptability alone isn't enough – you also need persistence. Coding is rarely smooth sailing; there are always bugs, errors, and roadblocks to deal with. That's where my stubbornness comes in handy. When I hit a wall, I don't just give up. I break the problem down into smaller pieces and systematically work through each one, testing and tweaking my code until it's running perfectly.</p>
+      <p>What really keeps me going is my genuine love for coding. There's nothing quite like the feeling of finally getting a project to work, of watching your code come to life. I've spent countless late nights debugging, optimizing algorithms, and refactoring code just to make it better. That relentless drive has not only sharpened my technical skills but also built up my overall resilience.</p>
+      <p>In team settings, being adaptable and persistent makes me a solid contributor. I'm quick to get up to speed on new processes and workflows, and I'll stick with a project through thick and thin, doing whatever it takes to help the team succeed. I'm always open to feedback and willing to change my approach if needed – the best solutions usually come from collaboration and continuous improvement.</p>
+      <p>These strengths have also shaped how I approach learning and professional growth. Tech never stops evolving, so I'm constantly expanding my knowledge base – mastering new languages, keeping up with AI and cybersecurity trends, you name it. Staying curious and committed to lifelong learning ensures I'm always ready to take on whatever challenges come my way.</p>
+      <p>At the end of the day, my adaptability and persistence are what allow me to thrive in this fast-paced coding world. They give me the confidence and resilience to navigate complexity, turn obstacles into opportunities, and keep pushing the boundaries of what's possible with code."</p>
+    </div>
+  </section>
+
+  <section id="resume" class="section">
+    <div class="content">
+      <h2>My Resume</h2>
+      <p>Check out my professional experience and skills on <a href="https://suraj-sah-resume.vercel.app/" target="_blank" rel="noopener noreferrer">Resume</a>.</p>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2024 Your Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      // Hide all sections
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show the selected section
+      document.getElementById(id).classList.add('active');
+    }
+
+    function showEntirePage() {
+      // Show all sections
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.add('active');
+      });
+    }
+  </script>
+</body>
+</html>
